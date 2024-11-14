@@ -1,7 +1,0 @@
-{
-    "employees": [
-      { "id": 1, "name": "John Doe", "age": 30, "empid": "E001", "designation": "Manager", "address": "123 Street" },
-      { "id": 2, "name": "Jane Smith", "age": 25, "empid": "E002", "designation": "Developer", "address": "456 Road" }
-    ]
-  }
-  
