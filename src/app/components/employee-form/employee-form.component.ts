@@ -3,9 +3,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { naturalNumberValidator } from '../../validators/employee-form/employee-form.validators';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { Employee } from '../../store/employee-form.model';
-import { addEmployee, updateEmployee, deleteEmployee } from '../../store/employee-form.actions';
-import { selectAllEmployees } from '../../store/employee-form.selectors';
+import { Employee } from '../../store/employee-form/employee-form.model';
+import { addEmployee, updateEmployee, deleteEmployee } from '../../store/employee-form/employee-form.actions';
+import { selectAllEmployees } from '../../store/employee-form/employee-form.selectors';
 
 
 @Component({
@@ -48,6 +48,9 @@ export class EmployeeFormComponent{
   
       this.employeeDetails.reset();
       this.isEditMode = false;
+      Object.keys(this.employeeDetails.controls).forEach(key => {
+      this.employeeDetails.controls[key].setErrors(null)
+      });
   
     } else {
       console.log('Invalid form data');

@@ -6,7 +6,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
-import { Employee } from '../../store/employee-form.model';
+import { Employee } from '../../store/employee-form/employee-form.model';
 
 describe('EmployeeFormComponent', () => {
   let component: EmployeeFormComponent;
