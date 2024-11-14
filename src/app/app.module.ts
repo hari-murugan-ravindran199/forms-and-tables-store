@@ -14,12 +14,14 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
-import { employeeReducer } from './store/employee-form.reducer';
+import { employeeReducer } from './store/employee-form/employee-form.reducer';
+import { EmployeeFormEntityComponent } from './components/employee-form-entity/employee-form-entity/employee-form-entity.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EmployeeFormComponent
+    EmployeeFormComponent,
+    EmployeeFormEntityComponent
   ],
   imports: [
     BrowserModule,
