@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EmployeeFormComponent } from './components/employee-form/employee-form.component';
+import { EmployeeFormEntityComponent } from './components/employee-form-entity/employee-form-entity.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -19,7 +20,8 @@ import { employeeReducer } from './store/employee-form.reducer';
 @NgModule({
   declarations: [
     AppComponent,
-    EmployeeFormComponent
+    EmployeeFormComponent,
+    EmployeeFormEntityComponent
   ],
   imports: [
     BrowserModule,
