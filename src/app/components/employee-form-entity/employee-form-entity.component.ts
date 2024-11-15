@@ -54,7 +54,6 @@ export class EmployeeFormEntityComponent implements OnInit {
   }
 
   deleteEmployee(id: number): void {
-    console.log('Dispatching delete action for employee ID:', id);
     if (confirm('Are you sure you want to delete this employee record?')) {
       this.store.dispatch(deleteEmployee({ id }));
     }

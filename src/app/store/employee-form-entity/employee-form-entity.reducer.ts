@@ -3,7 +3,6 @@ import { createEntityAdapter, EntityState } from '@ngrx/entity';
 import { Employee } from './employee-form-entity.model';
 import { loadEmployeesSuccess, addEmployee, updateEmployee, deleteEmployee } from './employee-form-entity.actions';
 
-// Set up the Entity adapter
 export const employeeAdapter = createEntityAdapter<Employee>();
 
 export interface EmployeeState extends EntityState<Employee> {}
