@@ -1,4 +1,3 @@
-// employee.reducer.ts
 import { createReducer, on } from '@ngrx/store';
 import { addEmployee, updateEmployee, deleteEmployee } from './employee-form.actions';
 import { Employee } from './employee-form.model';

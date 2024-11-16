@@ -4,8 +4,12 @@
   "compilerOptions": {
     "outDir": "./out-tsc/spec",
     "types": [
-      "jasmine"
-    ]
+      "jest"
+    ],
+    "module": "commonjs",    // Ensure Jest uses CommonJS modules
+    "esModuleInterop": true, // For better compatibility with ES6 imports
+    "skipLibCheck": true,    // Skip type checking of declaration files for speed
+    "strict": true
   },
   "files": [
     "src/test.ts",

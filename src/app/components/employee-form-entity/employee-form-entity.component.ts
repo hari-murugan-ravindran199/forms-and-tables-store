@@ -5,6 +5,7 @@ import { Employee } from '../../store/employee-form-entity/employee-form-entity.
 import { loadEmployeesSuccess,addEmployee, updateEmployee, deleteEmployee } from '../../store/employee-form-entity/employee-form-entity.actions';
 import { Observable } from 'rxjs';
 import { selectAllEmployees } from '../../store/employee-form-entity/employee-from-entity.selectors';
+import { naturalNumberValidator } from '../../validators/employee-form/employee-form.validators';
 import { EmployeeFormEntityService } from '../../store/employee-form-entity/employee-from-entity.service';
 
 @Component({
@@ -21,7 +22,7 @@ export class EmployeeFormEntityComponent implements OnInit {
   employeeDetails = new FormGroup({
     id: new FormControl(null),
     name: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(200)]),
-    age: new FormControl('', [Validators.required, Validators.min(18), Validators.max(99)]),
+    age: new FormControl('', [Validators.required, Validators.min(18), Validators.max(99), naturalNumberValidator()]),
     empid: new FormControl('', [Validators.required, Validators.minLength(5), Validators.maxLength(7)]),
     designation: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(200)]),
     address: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(200)])
@@ -38,14 +39,22 @@ export class EmployeeFormEntityComponent implements OnInit {
   }
 
   onSubmit(): void {
-    const employee: Employee = this.employeeDetails.value;
-    if (this.isEditMode) {
-      this.store.dispatch(updateEmployee({ employee }));
-    } else {
-      this.store.dispatch(addEmployee({ employee }));
+    if (this.employeeDetails.valid) {
+      const employee: Employee = this.employeeDetails.value;
+      if (this.isEditMode) {
+        this.store.dispatch(updateEmployee({ employee }));
+      } else {
+          this.store.dispatch(addEmployee({ employee }));
+      }
+      this.employeeDetails.reset();
+      this.isEditMode = false;
+      
+      Object.keys(this.employeeDetails.controls).forEach(key => {
+          this.employeeDetails.controls[key].setErrors(null)
+          });
+    }else {
+      console.log('Invalid form data');
     }
-    this.employeeDetails.reset();
-    this.isEditMode = false;
   }
 
   editEmployee(employee: Employee): void {

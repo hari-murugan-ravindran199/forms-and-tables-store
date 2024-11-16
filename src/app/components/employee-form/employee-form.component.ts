@@ -48,6 +48,9 @@ export class EmployeeFormComponent{
   
       this.employeeDetails.reset();
       this.isEditMode = false;
+      Object.keys(this.employeeDetails.controls).forEach(key => {
+        this.employeeDetails.controls[key].setErrors(null)
+        });
   
     } else {
       console.log('Invalid form data');
